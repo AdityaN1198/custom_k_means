@@ -7,7 +7,6 @@ import pandas as pd
 
 a = [[random.randrange(0,100) for j in range(2)] for i in range(400)]
 df = pd.DataFrame(a)
-print(df)
 
 def centroid_plot(data,center_red,center_green,feature1=0,feature2=1):
 
@@ -46,12 +45,10 @@ def grouping_animation(data,center_red=None,center_green=None,max_iter=300,curr_
         center_red = np.array([data.iloc[record1,0],data.iloc[record1,1]])
         center_green = np.array([data.iloc[record2,0],data.iloc[record2,1]])
     else:
-        print('new-center',center_red)
         center_red = np.array([center_red[0],center_red[1]])
         center_green = np.array([center_green[0],center_green[1]])
 
     fig, ax = plt.subplots()
-    #print("center_red",center_red)
     ax.scatter(data.iloc[:,0],data.iloc[:,1])
     ax.scatter(center_red.tolist()[0], center_red.tolist()[1], color='orange', s=200)
     ax.scatter(center_green.tolist()[0], center_green.tolist()[1], color='cyan', s=200)
